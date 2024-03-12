@@ -1,0 +1,14 @@
+# chatbot-js:
+#   filter: rjsmin
+#   output: ckanext-chatbot/%(version)s-chatbot.js
+#   contents:
+#     - js/chatbot.js
+#   extra:
+#     preload:
+#       - base/main
+
+# chatbot-css:
+#   filter: cssrewrite
+#   output: ckanext-chatbot/%(version)s-chatbot.css
+#   contents:
+#     - css/chatbot.css

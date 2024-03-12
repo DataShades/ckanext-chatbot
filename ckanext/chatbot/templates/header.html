@@ -1,0 +1,11 @@
+{% ckan_extends %}
+
+{% block header_account_profile %}
+    <li>
+        <a href="{{ h.url_for('chatbot.talk') }}" title="{{ _('Chatbot talk') }}">
+            <i class="fa fa-zap"></i>
+        </a>
+    </li>
+
+    {{ super() }}
+{% endblock %}

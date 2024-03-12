@@ -1,0 +1,45 @@
+{% extends "page.html" %}
+
+{% import 'macros/form.html' as form %}
+
+{% block secondary %}{% endblock secondary %}
+
+{% block page_header %}{% endblock page_header %}
+
+{% block primary %}
+    <div class="primary col-12" role="main">
+        {% block primary_content %}
+            {{ super() }}
+        {% endblock %}
+    </div>
+{% endblock primary %}
+
+{% block primary_content_inner %}
+    <form method="POST" action="{{ h.url_for('chatbot.talk') }}">
+        {{ form.textarea('promt', label=_('Promt'), value=data.promt, error=error, placeholder=_('Tell me, what do you want?')) }}
+
+
+        <p>
+            <span id="response">
+                {{ response }}
+            </span>
+
+            <span id="spinner" class="htmx-indicator">
+                {% snippet 'chatbot/bars.svg' %}
+            </span>
+        </p>
+
+        <p>
+            <a
+                href="#"
+                title="{{ _('Send') }}"
+                hx-post="{{ h.url_for('chatbot.talk') }}"
+                hx-target="#response"
+                hx-trigger="click"
+                hx-indicator="#spinner"
+                class="btn btn-primary">
+                {{ _("Send") }}
+            </a>
+        </p>
+    </form>
+{% endblock %}

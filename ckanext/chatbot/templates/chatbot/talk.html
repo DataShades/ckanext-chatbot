@@ -2,34 +2,48 @@
 
 {% import 'macros/form.html' as form %}
 
-{% block secondary %}{% endblock secondary %}
-
 {% block page_header %}{% endblock page_header %}
 
 {% block primary %}
-    <div class="primary col-12" role="main">
+    <div class="primary col-9" role="main">
         {% block primary_content %}
             {{ super() }}
         {% endblock %}
     </div>
 {% endblock primary %}
 
+{% block secondary_content %}
+    <div class="module-content">
+        <h3>{{ _("Your chats") }}</h3>
+
+        <ul class="list-unstyled">
+            {% for chat in chats %}
+                <li>
+                    <a href="{{ h.url_for('chatbot.chat', chat_id=chat.chat_id)}}">
+                        {{ _("Chat") }} #{{ loop.index }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock secondary_content %}
+
 {% block primary_content_inner %}
     <form method="POST" action="{{ h.url_for('chatbot.talk') }}">
-        {{ form.textarea('promt', label=_('Promt'), value=data.promt, error=error, placeholder=_('Tell me, what do you want?')) }}
-
+        <div class="response-area">
+            {% for message in active_chat %}
+                {{ message.content }}
+            {% endfor %}
+        </div>
 
         <p>
-            <span id="response">
+            <span id="response" style="white-space: pre-line;">
                 {{ response }}
-            </span>
-
-            <span id="spinner" class="htmx-indicator">
-                {% snippet 'chatbot/bars.svg' %}
             </span>
         </p>
 
-        <p>
+        <div class="input-area">
+            {{ form.textarea('prompt', label=_('Prompt'), value="", placeholder=_('Tell me, what do you want?')) }}
             <a
                 href="#"
                 title="{{ _('Send') }}"
@@ -40,6 +54,9 @@
                 class="btn btn-primary">
                 {{ _("Send") }}
             </a>
-        </p>
+            <span id="spinner" class="htmx-indicator mx-2">
+                {% snippet 'chatbot/bars.svg' %}
+            </span>
+        </div>
     </form>
 {% endblock %}

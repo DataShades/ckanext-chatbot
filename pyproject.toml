@@ -4,9 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ckanext-chatbot"
-version = "0.0.1"
+version = "0.0.11"
 description = ""
-authors = [{name = "Oleksandr Cherniavskiy", email = "mutantsan@gmail.com"}]
+authors = [
+    {name = "DataShades", email = "datashades@linkdigital.com.au"},
+    {name = "Oleksandr Cherniavskyi", email = "mutantsan@gmail.com"},
+]
+maintainers = [
+    {name = "DataShades", email = "datashades@linkdigital.com.au"},
+]
 license = {text = "AGPL"}
 classifiers = [
     "Development Status :: 4 - Beta",

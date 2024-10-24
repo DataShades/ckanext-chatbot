@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ckanext-chatbot"
-version = "0.0.11"
+version = "0.0.12"
 description = ""
 authors = [
     {name = "DataShades", email = "datashades@linkdigital.com.au"},
@@ -23,7 +23,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
 ]
 keywords = ["CKAN"]
-urls = {Homepage = "https://github.com//ckanext-chatbot"}
+urls = {Homepage = "https://github.com/DataShades/ckanext-chatbot"}
 dependencies = []
 optional-dependencies = {}
 

@@ -1,4 +1,4 @@
-[![Tests](https://github.com//ckanext-chatbot/workflows/Tests/badge.svg?branch=main)](https://github.com//ckanext-chatbot/actions)
+[![Tests](https://github.com/DataShades/ckanext-chatbot/workflows/Tests/badge.svg?branch=main)](https://github.com/DataShades/ckanext-chatbot/actions)
 
 # ckanext-chatbot
 
@@ -43,7 +43,7 @@ To install ckanext-chatbot:
 
 2. Clone the source and install it on the virtualenv
 
-    git clone https://github.com//ckanext-chatbot.git
+    git clone https://github.com/DataShades/ckanext-chatbot.git
     cd ckanext-chatbot
     pip install -e .
 	pip install -r requirements.txt
@@ -73,7 +73,7 @@ None at present
 To install ckanext-chatbot for development, activate your CKAN virtualenv and
 do:
 
-    git clone https://github.com//ckanext-chatbot.git
+    git clone https://github.com/DataShades/ckanext-chatbot.git
     cd ckanext-chatbot
     python setup.py develop
     pip install -r dev-requirements.txt
